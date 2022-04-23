@@ -1,0 +1,65 @@
+<div class="row card-cnpj text-center">
+    <div class="col card-cnpj-itens">
+        <form [formGroup]="cnpjForm">
+            <input nbInput status="success" class="input-cnpj" formControlName="cnpj" placeholder="00.000.000/0000-00"
+                mask="000.000.000-00||00.000.000/0000-00">
+            <button nbButton status="success" class="button-cnpj" (click)="getCNpj()">
+                Pesquisar
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- <div *ngIf="dados"> -->
+
+<div class="card-endereco" *ngIf="dados">
+    <div class="title-card-adress">ENDEREÇO</div>
+    <div>
+    <table style="width: 100%" class="table-dados">
+            <tr>
+                <td>RAZÃO SOCIAL</td>
+                <td>{{dados.razao_social}}</td>
+              </tr>
+              <tr>
+                <td>CNAE DESCRIÇÃO</td>
+                <td>{{dados.cnae_fiscal_descricao}}</td>
+              </tr>
+              <tr>
+                <td>NATUREZA JURÍDICA</td>
+                <td>{{dados.natureza_juridica}}</td>
+              </tr>
+              <tr>
+                <td>CEP</td>
+                <td>{{dados.cep}}</td>
+              </tr>
+              <tr>
+                <td>UF</td>
+                <td>{{dados.uf}}</td>
+              </tr>
+              <tr>
+                <td>MUNICIPIO</td>
+                <td>{{dados.municipio}}</td>
+              </tr>
+              <tr>
+                <td>BAIRRO</td>
+                <td>{{dados.bairro}}</td>
+              </tr>
+              <tr>
+                <td>LOGRADOURO</td>
+                <td>{{dados.logradouro}}</td>
+              </tr>
+            </table>
+        </div>
+</div>
+
+<div class="card-endereco" *ngIf="dados">
+    <div class="title-card-adress">CNAES SECUNDÁRIOS</div>
+    <div>
+        <ul>
+            <li *ngFor="let dados of cnaes_secundarios">
+              {{ dados.codigo }} - {{dados.descricao}}
+            </li>
+        </ul>
+    </div>
+</div>
+
